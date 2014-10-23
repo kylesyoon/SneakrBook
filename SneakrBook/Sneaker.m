@@ -7,6 +7,7 @@
 //
 
 #import "Sneaker.h"
+#import "Owner.h"
 
 
 @implementation Sneaker
@@ -14,6 +15,8 @@
 @dynamic brand;
 @dynamic color;
 @dynamic size;
+@dynamic imageName;
 @dynamic owners;
+@dynamic comments;
 
 @end

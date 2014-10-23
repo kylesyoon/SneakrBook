@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Owner.h"
+#import "Sneaker.h"
 
-@interface DetailViewController : UIViewController
+@interface ProfileViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property NSManagedObjectContext *managedObjectContext;
+@property Owner *owner;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "addOwnerViewController.h"
 
-@interface addOwnerViewController ()
+@interface addOwnerViewController () <UITableViewDataSource>
 
 @property NSArray *owners;
 
@@ -26,8 +26,9 @@
 }
 
 - (void)loadOwners {
+    NSLog(@"Fetching");
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Owner"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"Owner" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     self.owners = [self.managedObjectContext executeFetchRequest:request error:nil];
     
     [self.tableView reloadData];
@@ -35,9 +36,10 @@
 
 - (void)loadInitialJSON {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"]];
+    NSLog(@"Loading JSON");
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
+        NSLog(@"json is %@", jsonArray);
         for (NSString *name in jsonArray) {
             Owner *owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner" inManagedObjectContext:self.managedObjectContext];
             owner.name = name;
@@ -61,9 +63,9 @@
 }
 
 - (void)addOwner {
-    Owner *owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner" inManagedObjectContext:self.managedObjectContext];
-    owner = [self.owners objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    Owner *owner = [self.owners objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     [owner setValue:[NSNumber numberWithBool:YES] forKey:@"friend"];
+    NSLog(@"addOWner method, %@", [owner valueForKey:@"friend"]);
     [self.managedObjectContext save:nil];
 }
 

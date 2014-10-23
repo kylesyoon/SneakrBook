@@ -7,19 +7,21 @@
 //
 
 #import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "ProfileViewController.h"
 #import "Owner.h"
 #import "addOwnerViewController.h"
 
 @interface MasterViewController ()
 
-@property NSArray *addedOwners;
+@property NSArray *friendOwners;
 
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     [super viewDidLoad];
     [self loadAddedOwners];
 }
@@ -28,7 +30,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Owner"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friend = 1"];
     request.predicate = predicate;
-    self.addedOwners = [self.managedObjectContext executeFetchRequest:request error:nil];
+    self.friendOwners = [self.managedObjectContext executeFetchRequest:request error:nil];
     [self.tableView reloadData];
 }
 
@@ -37,7 +39,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    Owner *owner = [self.addedOwners objectAtIndex:indexPath.row];
+    Owner *owner = [self.friendOwners objectAtIndex:indexPath.row];
 
     cell.textLabel.text = owner.name;
 
@@ -45,16 +47,35 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.addedOwners.count;
+    return self.friendOwners.count;
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"addSegue"]) {
-//        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    if ([segue.identifier isEqualToString:@"addSegue"]) {
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    } else if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        NSLog(@"Preparing profile segue");
+        ProfileViewController *detailVC = segue.destinationViewController;
+        detailVC.owner = [self.friendOwners objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Owner *owner = [self.friendOwners objectAtIndex:indexPath.row];
+        [owner setValue:[NSNumber numberWithBool:NO] forKey:@"friend"];
+    }
+}
+
+
+
 
 - (IBAction)unwindFromAddOwner:(UIStoryboardSegue *)segue {
+    NSLog(@"unwind methods");
+    addOwnerViewController *addOwnerVC = segue.sourceViewController;
+    [addOwnerVC addOwner];
     [self loadAddedOwners];
 }
 

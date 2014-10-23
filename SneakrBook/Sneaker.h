@@ -9,20 +9,23 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Owner;
 
 @interface Sneaker : NSManagedObject
 
-@property (nonatomic, retain) NSString *brand;
-@property (nonatomic, retain) NSString *color;
-@property (nonatomic, retain) NSNumber *size;
-@property (nonatomic, retain) NSSet *owners;
+@property (nonatomic, retain) NSString * brand;
+@property (nonatomic, retain) NSString * color;
+@property (nonatomic, retain) NSNumber * size;
+@property (nonatomic, retain) NSString * imageName;
+@property (nonatomic, retain) Owner *owners;
+@property (nonatomic, retain) NSSet *comments;
 @end
 
 @interface Sneaker (CoreDataGeneratedAccessors)
 
-- (void)addOwnersObject:(NSManagedObject *)value;
-- (void)removeOwnersObject:(NSManagedObject *)value;
-- (void)addOwners:(NSSet *)values;
-- (void)removeOwners:(NSSet *)values;
+- (void)addCommentsObject:(NSManagedObject *)value;
+- (void)removeCommentsObject:(NSManagedObject *)value;
+- (void)addComments:(NSSet *)values;
+- (void)removeComments:(NSSet *)values;
 
 @end
