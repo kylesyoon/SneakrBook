@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Owner" representedClassName="Owner" syncable="YES">
+        <attribute name="friend" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sneakers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sneaker" inverseName="owners" inverseEntity="Sneaker" syncable="YES"/>
+    </entity>
+    <entity name="Sneaker" representedClassName="Sneaker" syncable="YES">
+        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="owners" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="sneakers" inverseEntity="Owner" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Owner" positionX="-45" positionY="0" width="128" height="88"/>
+        <element name="Sneaker" positionX="-18" positionY="27" width="128" height="105"/>
     </elements>
 </model>

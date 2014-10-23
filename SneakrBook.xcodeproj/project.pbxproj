@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		514AAD2119F86C1C006FFBD8 /* addOwnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */; };
+		514AAD2419F88A4F006FFBD8 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD2319F88A4F006FFBD8 /* Owner.m */; };
 		51FF872B19F843480034AE90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872A19F843480034AE90 /* main.m */; };
 		51FF872E19F843480034AE90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872D19F843480034AE90 /* AppDelegate.m */; };
 		51FF873119F843480034AE90 /* SneakrBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872F19F843480034AE90 /* SneakrBook.xcdatamodeld */; };
@@ -16,6 +18,7 @@
 		51FF873C19F843480034AE90 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FF873B19F843480034AE90 /* Images.xcassets */; };
 		51FF873F19F843480034AE90 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FF873D19F843480034AE90 /* LaunchScreen.xib */; };
 		51FF874B19F843490034AE90 /* SneakrBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF874A19F843490034AE90 /* SneakrBookTests.m */; };
+		51FF875619F844480034AE90 /* Sneaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF875519F844480034AE90 /* Sneaker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		514AAD1F19F86C1C006FFBD8 /* addOwnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addOwnerViewController.h; sourceTree = "<group>"; };
+		514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addOwnerViewController.m; sourceTree = "<group>"; };
+		514AAD2219F88A4F006FFBD8 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		514AAD2319F88A4F006FFBD8 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
 		51FF872519F843480034AE90 /* SneakrBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakrBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FF872919F843480034AE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51FF872A19F843480034AE90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,6 +52,8 @@
 		51FF874419F843490034AE90 /* SneakrBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SneakrBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FF874919F843490034AE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51FF874A19F843490034AE90 /* SneakrBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SneakrBookTests.m; sourceTree = "<group>"; };
+		51FF875419F844480034AE90 /* Sneaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sneaker.h; sourceTree = "<group>"; };
+		51FF875519F844480034AE90 /* Sneaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sneaker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +99,18 @@
 				51FF872D19F843480034AE90 /* AppDelegate.m */,
 				51FF873219F843480034AE90 /* MasterViewController.h */,
 				51FF873319F843480034AE90 /* MasterViewController.m */,
+				514AAD1F19F86C1C006FFBD8 /* addOwnerViewController.h */,
+				514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */,
 				51FF873519F843480034AE90 /* DetailViewController.h */,
 				51FF873619F843480034AE90 /* DetailViewController.m */,
 				51FF873819F843480034AE90 /* Main.storyboard */,
 				51FF873B19F843480034AE90 /* Images.xcassets */,
 				51FF873D19F843480034AE90 /* LaunchScreen.xib */,
 				51FF872F19F843480034AE90 /* SneakrBook.xcdatamodeld */,
+				514AAD2219F88A4F006FFBD8 /* Owner.h */,
+				514AAD2319F88A4F006FFBD8 /* Owner.m */,
+				51FF875419F844480034AE90 /* Sneaker.h */,
+				51FF875519F844480034AE90 /* Sneaker.m */,
 				51FF872819F843480034AE90 /* Supporting Files */,
 			);
 			path = SneakrBook;
@@ -232,6 +247,9 @@
 				51FF872E19F843480034AE90 /* AppDelegate.m in Sources */,
 				51FF872B19F843480034AE90 /* main.m in Sources */,
 				51FF873119F843480034AE90 /* SneakrBook.xcdatamodeld in Sources */,
+				514AAD2419F88A4F006FFBD8 /* Owner.m in Sources */,
+				514AAD2119F86C1C006FFBD8 /* addOwnerViewController.m in Sources */,
+				51FF875619F844480034AE90 /* Sneaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +440,7 @@
 				51FF875019F843490034AE90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51FF875119F843490034AE90 /* Build configuration list for PBXNativeTarget "SneakrBookTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +449,7 @@
 				51FF875319F843490034AE90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
