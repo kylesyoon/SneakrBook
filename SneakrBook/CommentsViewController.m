@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 yoonapps. All rights reserved.
 //
 
-#import "CommentsTableViewController.h"
+#import "CommentsViewController.h"
 #import "Comment.h"
 
-@interface CommentsTableViewController () <UITableViewDataSource>
+@interface CommentsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property NSArray *comments;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -17,25 +17,25 @@
 
 @end
 
-@implementation CommentsTableViewController
+@implementation CommentsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadComments];
-
 }
 
 - (void)loadComments {
-    NSArray *unsortedComments = [NSArray arrayWithArray:[self.sneaker.comments allObjects]];
-//    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-//    NSArray *sortArray = [NSArray arrayWithObject:sort];
-//    self.comments = [unsortedComments sortedArrayUsingDescriptors:sortArray];
-    self.comments = unsortedComments;
+//    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Comment"];
+//    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+//    self.comments = [self.sneaker.managedObjectContext executeFetchRequest:request error:nil];
+    
+    
+    NSArray *unsortedArray = [self.sneaker.comments allObjects];
+    self.comments = unsortedArray;
     [self.tableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.comments.count;
 }
 
@@ -55,12 +55,13 @@
 }
 
 - (IBAction)saveComment:(id)sender {
-    Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:self.managedObjectContext];
+    Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:self.sneaker.managedObjectContext];
     comment.text = self.textField.text;
-    NSLog(@"%@", comment.text);
     comment.date = [NSDate date];
     comment.sneakers = self.sneaker;
-    [self.managedObjectContext save:nil];
+    NSLog(@"The sneakers on this comment: %@", comment.sneakers.brand);
+    NSLog(@"The comments for this sneaker: %@", self.sneaker.comments);
+    [self.sneaker.managedObjectContext save:nil];
     self.textField.text = @"";
     [self loadComments];
 }

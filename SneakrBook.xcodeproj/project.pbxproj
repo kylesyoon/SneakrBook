@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		514602CA19FDBC7D00782C02 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 514602C919FDBC7D00782C02 /* Comment.m */; };
+		514602CD19FDD0B100782C02 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 514602CC19FDD0B100782C02 /* CustomTableViewCell.m */; };
 		514AAD2119F86C1C006FFBD8 /* addOwnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */; };
 		514AAD2419F88A4F006FFBD8 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD2319F88A4F006FFBD8 /* Owner.m */; };
 		514AAD2A19F89B32006FFBD8 /* AddShoeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD2919F89B32006FFBD8 /* AddShoeViewController.m */; };
 		514AAD3619F8A0F4006FFBD8 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD3519F8A0F4006FFBD8 /* CustomCollectionViewCell.m */; };
-		514AAD3C19F8B4B4006FFBD8 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD3B19F8B4B4006FFBD8 /* CommentsTableViewController.m */; };
+		514AAD3C19F8B4B4006FFBD8 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD3B19F8B4B4006FFBD8 /* CommentsViewController.m */; };
 		514AAD3F19F8B9C0006FFBD8 /* Sneaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD3E19F8B9C0006FFBD8 /* Sneaker.m */; };
-		514AAD4219F8B9C1006FFBD8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AAD4119F8B9C1006FFBD8 /* Comment.m */; };
 		51FF872B19F843480034AE90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872A19F843480034AE90 /* main.m */; };
 		51FF872E19F843480034AE90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872D19F843480034AE90 /* AppDelegate.m */; };
 		51FF873119F843480034AE90 /* SneakrBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51FF872F19F843480034AE90 /* SneakrBook.xcdatamodeld */; };
@@ -36,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		514602C819FDBC7D00782C02 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		514602C919FDBC7D00782C02 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		514602CB19FDD0B100782C02 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		514602CC19FDD0B100782C02 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		514AAD1F19F86C1C006FFBD8 /* addOwnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addOwnerViewController.h; sourceTree = "<group>"; };
 		514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addOwnerViewController.m; sourceTree = "<group>"; };
 		514AAD2219F88A4F006FFBD8 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
@@ -44,12 +49,10 @@
 		514AAD2919F89B32006FFBD8 /* AddShoeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShoeViewController.m; sourceTree = "<group>"; };
 		514AAD3419F8A0F4006FFBD8 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		514AAD3519F8A0F4006FFBD8 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
-		514AAD3A19F8B4B4006FFBD8 /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
-		514AAD3B19F8B4B4006FFBD8 /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
+		514AAD3A19F8B4B4006FFBD8 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		514AAD3B19F8B4B4006FFBD8 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		514AAD3D19F8B9C0006FFBD8 /* Sneaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sneaker.h; sourceTree = "<group>"; };
 		514AAD3E19F8B9C0006FFBD8 /* Sneaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sneaker.m; sourceTree = "<group>"; };
-		514AAD4019F8B9C1006FFBD8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		514AAD4119F8B9C1006FFBD8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		51FF872519F843480034AE90 /* SneakrBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakrBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FF872919F843480034AE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51FF872A19F843480034AE90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,22 +114,24 @@
 				51FF872D19F843480034AE90 /* AppDelegate.m */,
 				51FF873219F843480034AE90 /* MasterViewController.h */,
 				51FF873319F843480034AE90 /* MasterViewController.m */,
+				514602CB19FDD0B100782C02 /* CustomTableViewCell.h */,
+				514602CC19FDD0B100782C02 /* CustomTableViewCell.m */,
 				514AAD1F19F86C1C006FFBD8 /* addOwnerViewController.h */,
 				514AAD2019F86C1C006FFBD8 /* addOwnerViewController.m */,
 				51FF873519F843480034AE90 /* ProfileViewController.h */,
 				51FF873619F843480034AE90 /* ProfileViewController.m */,
 				514AAD2819F89B32006FFBD8 /* AddShoeViewController.h */,
 				514AAD2919F89B32006FFBD8 /* AddShoeViewController.m */,
-				514AAD3A19F8B4B4006FFBD8 /* CommentsTableViewController.h */,
-				514AAD3B19F8B4B4006FFBD8 /* CommentsTableViewController.m */,
+				514AAD3A19F8B4B4006FFBD8 /* CommentsViewController.h */,
+				514AAD3B19F8B4B4006FFBD8 /* CommentsViewController.m */,
 				514AAD3419F8A0F4006FFBD8 /* CustomCollectionViewCell.h */,
 				514AAD3519F8A0F4006FFBD8 /* CustomCollectionViewCell.m */,
 				51FF873819F843480034AE90 /* Main.storyboard */,
 				51FF873B19F843480034AE90 /* Images.xcassets */,
 				51FF873D19F843480034AE90 /* LaunchScreen.xib */,
 				51FF872F19F843480034AE90 /* SneakrBook.xcdatamodeld */,
-				514AAD4019F8B9C1006FFBD8 /* Comment.h */,
-				514AAD4119F8B9C1006FFBD8 /* Comment.m */,
+				514602C819FDBC7D00782C02 /* Comment.h */,
+				514602C919FDBC7D00782C02 /* Comment.m */,
 				514AAD3D19F8B9C0006FFBD8 /* Sneaker.h */,
 				514AAD3E19F8B9C0006FFBD8 /* Sneaker.m */,
 				514AAD2219F88A4F006FFBD8 /* Owner.h */,
@@ -265,15 +270,16 @@
 				51FF873719F843480034AE90 /* ProfileViewController.m in Sources */,
 				514AAD2A19F89B32006FFBD8 /* AddShoeViewController.m in Sources */,
 				51FF873419F843480034AE90 /* MasterViewController.m in Sources */,
-				514AAD3C19F8B4B4006FFBD8 /* CommentsTableViewController.m in Sources */,
+				514AAD3C19F8B4B4006FFBD8 /* CommentsViewController.m in Sources */,
 				51FF872E19F843480034AE90 /* AppDelegate.m in Sources */,
 				514AAD3F19F8B9C0006FFBD8 /* Sneaker.m in Sources */,
 				51FF872B19F843480034AE90 /* main.m in Sources */,
-				514AAD4219F8B9C1006FFBD8 /* Comment.m in Sources */,
+				514602CA19FDBC7D00782C02 /* Comment.m in Sources */,
 				51FF873119F843480034AE90 /* SneakrBook.xcdatamodeld in Sources */,
 				514AAD2419F88A4F006FFBD8 /* Owner.m in Sources */,
 				514AAD2119F86C1C006FFBD8 /* addOwnerViewController.m in Sources */,
 				514AAD3619F8A0F4006FFBD8 /* CustomCollectionViewCell.m in Sources */,
+				514602CD19FDD0B100782C02 /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,8 @@
 #import "Sneaker.h"
 #import <CoreData/CoreData.h>
 
-@interface CommentsTableViewController : UITableViewController
+@interface CommentsViewController : UITableViewController
 
 @property Sneaker *sneaker;
-@property NSManagedObjectContext *managedObjectContext;
 
 @end

@@ -13,6 +13,6 @@
 
 @property NSManagedObjectContext *managedObjectContext;
 
-- (void)addOwner ;
+- (void)addOwner;
 
 @end

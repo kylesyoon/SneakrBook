@@ -20,9 +20,11 @@
 @implementation MasterViewController
 
 - (void)viewDidLoad {
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
     [super viewDidLoad];
+    [self loadAddedOwners];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self loadAddedOwners];
 }
 
@@ -34,15 +36,20 @@
     [self.tableView reloadData];
 }
 
-
 #pragma mark - tableview
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     Owner *owner = [self.friendOwners objectAtIndex:indexPath.row];
-
+    int commentCount = 0;
+    for(Sneaker *sneaker in owner.sneakers) {
+        commentCount += (int)[[sneaker comments] count];
+    }
+    
     cell.textLabel.text = owner.name;
-
+    cell.imageView.image = [owner returnMostCommentedShoeImage];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"(%d)", commentCount];
+    
     return cell;
 }
 
@@ -51,26 +58,14 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
     if ([segue.identifier isEqualToString:@"addSegue"]) {
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        //Need to pass the managedObjectContext since we are not passing any managed objects.
     } else if ([segue.identifier isEqualToString:@"detailSegue"]) {
-        NSLog(@"Preparing profile segue");
         ProfileViewController *detailVC = segue.destinationViewController;
         detailVC.owner = [self.friendOwners objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-
     }
 }
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Owner *owner = [self.friendOwners objectAtIndex:indexPath.row];
-        [owner setValue:[NSNumber numberWithBool:NO] forKey:@"friend"];
-    }
-}
-
-
-
 
 - (IBAction)unwindFromAddOwner:(UIStoryboardSegue *)segue {
     NSLog(@"unwind methods");

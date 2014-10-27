@@ -9,7 +9,6 @@
 #import "Sneaker.h"
 #import "Owner.h"
 
-
 @implementation Sneaker
 
 @dynamic brand;

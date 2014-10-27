@@ -22,12 +22,15 @@
     if (self.owners.count == 0)
     {
         [self loadInitialJSON];
+        NSLog(@"Getting data from JSON");
     }
 }
 
 - (void)loadOwners {
     NSLog(@"Fetching");
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Owner"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friend = 0"];
+    request.predicate = predicate;
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     self.owners = [self.managedObjectContext executeFetchRequest:request error:nil];
     
@@ -35,18 +38,9 @@
 }
 
 - (void)loadInitialJSON {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"]];
-    NSLog(@"Loading JSON");
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"json is %@", jsonArray);
-        for (NSString *name in jsonArray) {
-            Owner *owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner" inManagedObjectContext:self.managedObjectContext];
-            owner.name = name;
-        }
-        [self.managedObjectContext save:nil];
+    [Owner retrieveJSONDataWithContext:self.managedObjectContext completion:^{
+        [self loadOwners];
     }];
-    [self loadOwners];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -65,7 +59,7 @@
 - (void)addOwner {
     Owner *owner = [self.owners objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     [owner setValue:[NSNumber numberWithBool:YES] forKey:@"friend"];
-    NSLog(@"addOWner method, %@", [owner valueForKey:@"friend"]);
+    NSLog(@"addOwner method, %@", [owner valueForKey:@"friend"]);
     [self.managedObjectContext save:nil];
 }
 

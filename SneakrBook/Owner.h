@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
+
 
 @class Sneaker;
 
@@ -24,5 +26,9 @@
 - (void)removeSneakersObject:(Sneaker *)value;
 - (void)addSneakers:(NSSet *)values;
 - (void)removeSneakers:(NSSet *)values;
+
++ (void)retrieveJSONDataWithContext:(NSManagedObjectContext *)context completion:(void(^)(void))completion;
+- (UIImage *)returnMostCommentedShoeImage;
+
 
 @end

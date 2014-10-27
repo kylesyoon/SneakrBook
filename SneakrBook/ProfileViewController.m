@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 #import "AddShoeViewController.h"
 #import "CustomCollectionViewCell.h"
-#import "CommentsTableViewController.h"
+#import "CommentsViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -37,12 +37,10 @@
 }
 
 - (IBAction)unwindFromAddShoe:(UIStoryboardSegue *)segue {
-
     AddShoeViewController *addShoeVC = segue.sourceViewController;
     Sneaker *sneaker = [addShoeVC createSneaker];
     sneaker.owners = self.owner;
-    NSLog(@"Added owner to shoe");
-    [self.managedObjectContext save:nil];
+    [self.owner.managedObjectContext save:nil];
     [self loadShoes];
 }
 
@@ -63,11 +61,14 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
     if ([segue.identifier isEqualToString:@"commentSegue"]) {
-        CommentsTableViewController *commentsVC = segue.destinationViewController;
+        CommentsViewController *commentsVC = segue.destinationViewController;
         NSIndexPath *index = [self.collectionView.indexPathsForSelectedItems objectAtIndex:0];
         commentsVC.sneaker = [self.friendShoes objectAtIndex:index.row];
+        NSLog(@"The brand is: %@", commentsVC.sneaker.brand);
+    } else if ([segue.identifier isEqualToString:@"addSegue"]) {
+        AddShoeViewController *addShoeViewController = segue.destinationViewController;
+        [addShoeViewController setManagedObjectContext:self.owner.managedObjectContext];
     }
 }
 

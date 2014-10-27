@@ -33,7 +33,8 @@
 
     return sneaker;
 }
-
+//Gets called when the view unwinds. The button is hooked up to IBAction unwind in ProfileViewController.m
 
 
 @end
+

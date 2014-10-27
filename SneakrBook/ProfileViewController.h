@@ -12,7 +12,6 @@
 
 @interface ProfileViewController : UIViewController
 
-@property NSManagedObjectContext *managedObjectContext;
 @property Owner *owner;
 
 @end
